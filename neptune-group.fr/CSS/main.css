@@ -85,7 +85,7 @@ header img {
   transition: all 0.3s ease;
   background-color: rgba(255, 255, 255, 0.2);
   -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   padding: 0;
   top: 50%;
   left: 50%;
@@ -95,7 +95,7 @@ header img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 50%;
 }
 
@@ -116,36 +116,28 @@ header img {
   opacity: 1;
 }
 
-.circle-button.outer.top {
-  transform: translate(-50%, -330px);
+.circle-button.right.outer {
+  transform: translate(250px, -50%);
 }
 
-.circle-button.outer.right {
-  transform: translate(330px, -50%);
+.circle-button.right-up.inner {
+  transform: translate(98px, -230px);
 }
 
-.circle-button.outer.bottom {
-  transform: translate(-50%, 250px);
+.circle-button.left-up.outer {
+  transform: translate(-145px, -310px);
 }
 
-.circle-button.outer.left {
-  transform: translate(-250px, -50%);
-}
-
-.circle-button.inner.top {
-  transform: translate(-50%, -195px);
-}
-
-.circle-button.inner.right {
-  transform: translate(195px, -50%);
-}
-
-.circle-button.inner.bottom {
-  transform: translate(-50%, 275px);
-}
-
-.circle-button.inner.left {
+.circle-button.left.inner {
   transform: translate(-275px, -50%);
+}
+
+.circle-button.left-down.outer {
+  transform: translate(-145px, 230px);
+}
+
+.circle-button.right-down.inner {
+  transform: translate(98px, 160px);
 }
 
 /* Animation des étoiles */
