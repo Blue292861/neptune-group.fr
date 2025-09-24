@@ -1,0 +1,187 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    background-image: url(../Images/MainBG.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 20;
+}
+
+header img {
+    height: 100px;
+}
+
+.main-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+}
+
+#neptune-model {
+    width: 450px;
+    height: 450px;
+    z-index: 10;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle {
+    border: 2px solid white;
+    border-radius: 50%;
+    z-index: 1;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-1 {
+    width: 480px;
+    height: 480px;
+    opacity: 0.8;
+}
+
+.circle-2 {
+    width: 580px;
+    height: 580px;
+    opacity: 0.6;
+}
+
+.buttons-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.circle-button {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    
+    padding: 0;
+    top: 50%;
+    left: 50%;
+}
+
+.circle-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.circle-button::after {
+    content: attr(data-text);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.circle-button:hover::after {
+    opacity: 1;
+}
+
+.circle-button.outer.top {
+    transform: translate(-50%, -330px);
+}
+
+.circle-button.outer.right {
+    transform: translate(330px, -50%);
+}
+
+.circle-button.outer.bottom {
+    transform: translate(-50%, 250px);
+}
+
+.circle-button.outer.left {
+    transform: translate(-250px, -50%);
+}
+
+
+.circle-button.inner.top {
+    transform: translate(-50%, -195px);
+}
+
+.circle-button.inner.right {
+    transform: translate(195px, -50%);
+}
+
+.circle-button.inner.bottom {
+    transform: translate(-50%, 275px);
+}
+
+.circle-button.inner.left {
+    transform: translate(-275px, -50%);
+}
+
+/* Animation des étoiles */
+.star-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    top: -50px;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+    transform-origin: center;
+    opacity: 0;
+    animation: shooting-star linear forwards;
+    pointer-events: none;
+}
+
+@keyframes shooting-star {
+    0% {
+        transform: translate(0, 0) rotate(-120deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-100vw, 100vh) rotate(-120deg);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neptune Group</title>
+    <meta name="description" content="Retrouvez toute l'actualité et tous les liens pratiques du Neptune Group.">
+    <meta name="keywords" content="Neptune, Group, Orydia, Oryshop">
+    <link rel="icon" type="image/x-icon" href="../Images/favicon.png">
+    
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    
+    <link rel="stylesheet" href="../CSS/main.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="header-logo-link">
+            <img src="../Images/Complet_avec_fond.png" alt="Neptune Group Logo">
+        </a>
+    </header>
+
+    <div class="star-container"></div>
+    <template id="star-template">
+        <div class="star"></div>
+    </template>
+
+    <div class="main-container">
+        <div class="circle circle-2"></div>
+        <div class="circle circle-1"></div>
+
+        <model-viewer 
+            id="neptune-model"
+            alt="A 3D model of a planet" 
+            src="../Images/NeptuneModel.glb"
+            ar
+            camera-controls
+            auto-rotate
+            disable-zoom
+            camera-orbit="-180deg -180deg 100%"
+            touch-action="pan-y">
+        </model-viewer>
+        
+        <div class="buttons-container">
+            <a href="litterature.html">
+                <button class="circle-button top outer" data-text="litterature">
+                    <img src="../Images/Logo_litterature_blanc.png" alt="Neptune Littérature Logo">
+                </button>
+            </a>
+            <button class="circle-button right inner" data-text="Neptune Cinematic Studios">
+                <img src="../Images/Logo_NCS_blanc.png" alt="NCS Logo">
+            </button>
+            <button class="circle-button bottom outer" data-text="Neptune Play">
+                <img src="../Images/Logo_play_blanc.png" alt="Neptune Play Logo">
+            </button>
+            <button class="circle-button left inner" data-text="Neptune Group">
+                <img src="../Images/NeptuneGroupProjectLogo.png" alt="Neptune Group Logo">
+            </button>
+        </div>
+    </div>
+
+    <script src="../JavaScript/script.js"></script>
+
+</body>
+</html>
