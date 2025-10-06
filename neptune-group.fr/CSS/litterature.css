@@ -4,7 +4,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ccc;
+  background : #0A1931;
   perspective: 1200px;
   padding: 20px;
   box-sizing: border-box;
@@ -14,7 +14,8 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 200px 400px; /* Ecart horizontal très important */
+  /* Espacement: 200px vertical, 400px horizontal. L'écart de 400px est maintenu pour éviter le chevauchement à l'ouverture. */
+  gap: 200px 400px; 
   justify-items: center;
   align-items: center;
 }
@@ -27,26 +28,18 @@ body {
   backface-visibility: visible;
 }
 
-/* Réorganisation des livres et décalage pour la disposition en quinconce */
+/* Modification pour déplacer le Livre 1 vers la gauche et le Livre 4 vers la droite.
+   Les Livres 2 et 3 ne reçoivent plus de transformation et restent centrés. */
 .book:nth-child(1) {
-  order: 1;
-  transform: translateX(-300px); /* Augmentation du décalage vers la gauche */
-}
-
-.book:nth-child(3) {
-  order: 2;
-  transform: translateX(-300px); /* Augmentation du décalage vers la gauche */
-}
-
-.book:nth-child(2) {
-  order: 3;
-  transform: translateX(300px); /* Augmentation du décalage vers la droite */
+  transform: translateX(-200px); /* Déplace le Livre 1 (en haut à gauche) vers la gauche */
 }
 
 .book:nth-child(4) {
-  order: 4;
-  transform: translateX(300px); /* Augmentation du décalage vers la droite */
+  transform: translateX(200px); /* Déplace le Livre 4 (en bas à droite) vers la droite */
 }
+
+/* Suppression des règles de réorganisation et de décalage des livres 2 et 3. */
+/* Les sélecteurs .book:nth-child(2) et .book:nth-child(3) pour le transform ont été retirés. */
 
 .front, .back, .page1, .page2, .page3, .page4, .page5, .page6 {
   transform-style: preserve-3d;
