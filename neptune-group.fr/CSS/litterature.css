@@ -1,3 +1,33 @@
+/* NOUVEAU: Styles pour le bouton de retour */
+.return-container {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 100; /* Assure que le bouton est au-dessus de tout */
+}
+
+.return-button {
+    text-decoration: none;
+    padding: 10px 15px;
+    /* Couleur de fond discrète */
+    background-color: rgba(255, 255, 255, 0.1); 
+    color: #F0F0F0; /* Texte clair */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    
+    /* Effet "blur" pour le style Neptune */
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.return-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #FFFFFF;
+}
+
 body {
   width: 100%;
   height: 100vh;
@@ -8,6 +38,8 @@ body {
   perspective: 1200px;
   padding: 20px;
   box-sizing: border-box;
+  /* MODIFIÉ : Masque tout débordement horizontal ET vertical pour supprimer la scrollbar */
+  overflow: hidden; 
 }
 
 .book-container {
@@ -15,8 +47,8 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  /* Espacement: 200px vertical, 400px horizontal. L'écart de 400px est maintenu pour éviter le chevauchement à l'ouverture. */
-  gap: 200px 400px; 
+  /* MODIFIÉ: Réduction de l'espacement vertical (100px -> 50px) et maintien de l'horizontal (100px) */
+  gap: 50px 100px; 
   justify-items: center;
   align-items: center;
 }
@@ -29,13 +61,14 @@ body {
     align-items: center; /* Centre le livre et le panonceau horizontalement */
 }
 
-/* Modification pour déplacer le Livre 1 et 4. Cible maintenant le wrapper */
+/* Réduction du décalage horizontal de 100px à 50px */
 .book-wrapper:nth-child(1) {
-  transform: translateX(-200px); /* Déplace le Livre 1 (en haut à gauche) vers la gauche */
+  transform: translateX(-50px); /* Déplace le Livre 1 (en haut à gauche) vers la gauche */
 }
 
+/* Réduction du décalage horizontal de 100px à 50px */
 .book-wrapper:nth-child(4) {
-  transform: translateX(200px); /* Déplace le Livre 4 (en bas à droite) vers la droite */
+  transform: translateX(50px); /* Déplace le Livre 4 (en bas à droite) vers la droite */
 }
 
 
@@ -50,7 +83,8 @@ body {
   backface-visibility: visible;
   text-decoration: none; /* Supprime le soulignement du lien par défaut */
   color: inherit; /* Assure que les couleurs de texte ne sont pas bleues */
-  margin-bottom: 25px; /* ESPACE entre le livre et le panonceau */
+  /* MODIFIÉ: Réduction de l'espace sous le livre (25px -> 15px) */
+  margin-bottom: 15px; 
 }
 
 
@@ -63,8 +97,6 @@ body {
   transform-origin: left center;
   transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
 }
-
-/* CORRECTION : Rétablissement des couleurs et suppression des background-image pour tous les livres */
 
 /* Styles pour le premier livre (vert forêt) */
 .book-wrapper:nth-child(1) .front,
