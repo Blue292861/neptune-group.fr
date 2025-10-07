@@ -21,11 +21,15 @@ body {
 }
 
 .book {
+  /* Le livre est maintenant un <a>, le curseur est automatiquement 'pointer' */
   transform-style: preserve-3d;
   position: relative;
   height: 270px;
-  cursor: pointer;
+  /* Le curseur: pointer est implicite pour <a> mais l'était explicitement avant. On peut le laisser */
+  cursor: pointer; 
   backface-visibility: visible;
+  text-decoration: none; /* Supprime le soulignement du lien par défaut */
+  color: inherit; /* Assure que les couleurs de texte ne sont pas bleues */
 }
 
 /* Modification pour déplacer le Livre 1 vers la gauche et le Livre 4 vers la droite.
@@ -133,7 +137,7 @@ body {
   background: #fdfdfd;
 }
 
-/* --- Styles pour le lien sur les pages (Ciblent maintenant P5 et P6) --- */
+/* --- Styles pour l'inscription sur les pages (Ciblent P5 et P6) --- */
 
 .page-content {
     position: absolute;
@@ -143,47 +147,52 @@ body {
     left: 0;
 }
 
-.book-link {
+/* Le texte d'inscription est maintenant un SPAN */
+.book-inscription {
     /* Styles généraux pour l'inscription */
+    display: block; /* S'assure que text-align fonctionne */
     position: absolute;
-    top: 50%; /* Centrage vertical */
+    top: 50%; 
+    width: 100%; 
     
     color: #444; 
-    font-family: 'Times New Roman', Times, serif; 
-    font-size: 20px; /* Grande taille pour l'effet d'inscription */
+    /* MODIFIÉ : Nouvelle police cursive (manuscrite) */
+    font-family: 'Segoe Script', 'Monotype Corsiva', cursive; 
+    font-size: 24px; 
     font-weight: bold;
     text-decoration: none; 
-    white-space: nowrap; /* Maintient le texte sur une ligne */
+    white-space: nowrap; 
     
     opacity: 0; 
     transition: opacity 0.3s ease 0.3s;
+    
+    /* MAINTENU : Le texte ne doit pas bloquer le clic sur le livre */
     pointer-events: none; 
     
     z-index: 10;
+    
+    transform: translateY(-50%);
 }
 
 /* Positionnement spécifique pour la page de GAUCHE (page6) - PARTIE 2 */
-/* Page 6: tourné à -50deg. On voit le recto. Le texte est à l'endroit. */
-.page6 .book-link.part-2 {
-    left: 10px; /* Positionné près du pli central */
-    right: auto;
-    transform: translateY(-50%); /* Ajustement vertical */
+.page6 .book-inscription.part-2 {
+    text-align: left; /* Aligner le texte vers le pli */
+    padding-left: 15px; /* Marge pour l'espace vide près du pli */
+    transform: translateY(-50%); 
 }
 
 /* Positionnement spécifique pour la page de DROITE (page5) - PARTIE 1 */
-/* Page 5: tourné à -130deg. On voit le verso. Le texte est inversé. */
-.page5 .book-link.part-1 {
-    right: 10px; /* Positionné près du pli central */
-    left: auto;
+.page5 .book-inscription.part-1 {
+    text-align: right; /* Aligner le texte vers le pli */
+    padding-right: 15px; /* Marge pour l'espace vide près du pli */
     
     /* Correction de l'inversion (miroir) du texte ET ajustement vertical */
     transform: rotateY(180deg) translateY(-50%);
 }
 
-/* Rendre le lien visible et cliquable uniquement quand le livre est ouvert */
-.book:hover .book-link {
+/* Rendre le texte visible uniquement quand le livre est ouvert */
+.book:hover .book-inscription {
     opacity: 1;
-    pointer-events: all; 
 }
 /* ----------------------------------------------- */
 
