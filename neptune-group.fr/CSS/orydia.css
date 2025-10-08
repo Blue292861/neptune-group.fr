@@ -1,0 +1,321 @@
+/* Variables CSS pour l'esthétique zen et luxe discret */
+:root {
+    /* Couleurs */
+    --color-sage-green: #7A997E;      /* Vert sauge/profond */
+    --color-deep-green: #405743;
+    --color-matte-gold: #B89C77;      /* Or mat/Bronze */
+    --color-bronze: #997A5E;
+    --color-off-white: #F4F0E8;       /* Beige/Blanc cassé apaisant (fond) */
+    --color-text-dark: #333333;
+
+    /* Typographie */
+    --font-serif: 'Lora', serif;      /* Élégante pour les titres */
+    --font-sans-serif: 'Inter', sans-serif; /* Lisible pour le corps */
+    --font-cursive-logo: 'Great Vibes', cursive; /* Nouvelle police pour le logo */
+
+    /* Espacement et Ombres */
+    --spacing-lg: 3rem;
+    --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-lift: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+    /* Transitions Lentes et Fluides */
+    --transition-speed: 0.5s;
+}
+
+/* --- Base & Typographie --- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans-serif);
+    color: var(--color-text-dark);
+    background-color: var(--color-off-white);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    color: var(--color-deep-green);
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.4rem; }
+
+/* --- Structure Globale --- */
+
+.section {
+    padding: var(--spacing-lg) 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+/* --- Header & Navigation --- */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-off-white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Modification ici : Style pour le logo Orydia */
+.logo {
+    font-family: var(--font-cursive-logo); /* Application de la police cursive */
+    font-size: 2.5rem; /* Augmenter la taille pour la lisibilité cursive */
+    font-weight: 400; /* Les polices cursives ont souvent un poids plus léger */
+    color: var(--color-deep-green);
+    /* Ajout d'une légère ombre pour un effet plus luxe */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); 
+}
+
+.nav {
+    display: none; /* Mobile : Nav cachée (pour un menu burger non implémenté pour la simplicité) */
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 400;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color var(--transition-speed);
+}
+
+.nav-link:hover {
+    color: var(--color-matte-gold);
+}
+
+/* --- Boutons CTA (Aspect Matériau Noble) --- */
+
+.btn {
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--color-deep-green);
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    letter-spacing: 0.5px;
+}
+
+.btn-cta {
+    background-color: var(--color-deep-green);
+    color: var(--color-off-white);
+    border-color: var(--color-deep-green);
+}
+
+.btn-cta:hover {
+    background-color: var(--color-bronze); /* Passage au Bronze/Or mat au survol */
+    border-color: var(--color-bronze);
+    box-shadow: var(--shadow-subtle);
+    transform: translateY(-2px);
+}
+
+.btn-hero {
+    margin-top: 2rem;
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* --- Section Héro (Parallaxe Léger avec image de bibliothèque) --- */
+
+.hero-section {
+    position: relative;
+    height: 80vh;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+
+    /* NOUVELLE IMAGE DE BIBLIOTHÈQUE PLUS SOMPTUEUSE ET ANCIENNE */
+    background-image: 
+        linear-gradient(rgba(64, 87, 67, 0.5), rgba(64, 87, 67, 0.7)), 
+        url('../Images/hero-section.jpg'); /* URL pour une bibliothèque antique et sombre */
+    
+    background-attachment: fixed; 
+}
+
+/* NOTE : Si vous utilisez le JS pour le parallaxe, le `background-attachment: fixed;` ci-dessus peut être omis.
+   Le JS prendra le relais pour simuler le mouvement. Je le laisse ici comme alternative/renforcement. */
+
+
+.hero-content {
+    max-width: 90%;
+    color: var(--color-off-white);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6); 
+    padding: 1.5rem;
+    background-color: rgba(64, 87, 67, 0.35); 
+    border-radius: 8px;
+    backdrop-filter: blur(2px); 
+}
+
+.hero-content h1 {
+    color: var(--color-off-white);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content .subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Cartes & Grilles --- */
+
+.experience-grid, .reward-system-grid, .testimonial-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.card, .reward-card, .testimonial-card {
+    padding: 2rem;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-subtle);
+    transition: all var(--transition-speed);
+    text-align: left;
+}
+
+.card:hover, .reward-card:hover {
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-3px);
+    border-color: var(--color-matte-gold);
+}
+
+.card h3, .reward-card h3 {
+    color: var(--color-matte-gold);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+/* --- Section Tensens (Fidélité) --- */
+
+.tensens-section {
+    background-color: var(--color-off-white);
+}
+
+.tensens-explanation {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    font-style: italic;
+    color: var(--color-sage-green);
+}
+
+.reward-card {
+    text-align: center;
+    border-left: 5px solid var(--color-sage-green);
+}
+
+/* --- Section Témoignages --- */
+
+.testimonials-section {
+    background-color: #EFEBE5; /* Légèrement plus foncé */
+}
+
+.testimonial-card {
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    border: none;
+    font-style: italic;
+    font-family: var(--font-serif);
+    color: var(--color-text-dark);
+}
+
+.testimonial-card p {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.testimonial-card footer {
+    font-style: normal;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-matte-gold);
+}
+
+/* --- Footer --- */
+
+.footer {
+    padding: 1.5rem;
+    background-color: var(--color-deep-green);
+    color: var(--color-off-white);
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* --- Animations d'Apparition (Gérées par JS) --- */
+
+.fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--transition-speed) ease-out, transform var(--transition-speed) ease-out;
+    will-change: opacity, transform;
+}
+
+.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Media Queries (Desktop) --- */
+
+@media (min-width: 768px) {
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.5rem; }
+    .section { padding: 5rem 2rem; }
+    
+    .logo {
+        font-size: 3.5rem; /* Ajuster pour le desktop si nécessaire */
+    }
+
+    .nav {
+        display: flex; /* Affichage de la navigation sur desktop */
+    }
+
+    .experience-grid, .reward-system-grid {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+    }
+    
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .reward-card {
+        text-align: left;
+    }
+}
